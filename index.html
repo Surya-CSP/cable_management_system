@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cable Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="/dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: #f4f4f9;
+        color: #333;
+        margin: 0;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 15px 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #333;
+        font-family: 'Playfair Display', serif;
+      }
+
+      .navbar .nav-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .navbar .nav-links a {
+        text-decoration: none;
+        color: #555;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .navbar .nav-links a.active {
+        color: #6a0dad;
+        border-bottom: 2px solid #6a0dad;
+      }
+
+      .navbar .nav-links a:hover {
+        background-color: rgba(106, 13, 173, 0.1);
+        color: #6a0dad;
+      }
+
+      /* Button Styling */
+      .btn-primary {
+        background-color: #6a0dad;
+        color: white;
+        font-weight: bold;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 18px;
+        transition: transform 0.3s ease;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        transform: scale(1.1);
+        background-color: #5a0b8f;
+      }
+
+      .section {
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <div class="logo">Cable Management</div>
+      <div class="nav-links">
+        <a href="index.html" class="active" onclick="navigateTo('home')">Home</a>
+        <a href="payment.html" onclick="navigateTo('payment')">Payment</a>
+        <a href="report.html" onclick="navigateTo('report')">Report</a>
+        <a href="support.html" onclick="navigateTo('support')">Support</a>
+        <a href="av.html" onclick="navigateTo('admin')">Admin</a>
+      </div>
+    </div>
+
+    <!-- Home Section -->
+    <div id="home" class="section">
+      <div class="min-h-screen flex items-center justify-center flex-col">
+        <button class="btn-primary">
+          Welcome to Cable Management System
+        </button>
+
+        <!-- Add Image for Home Section -->
+        <img src="https://media.istockphoto.com/id/1623611490/photo/two-workers-inspecting-industrial-refrigeration-equipment.jpg?s=612x612&w=0&k=20&c=bYys26wfqmBB7j1nNQ7WPquRggPCyvwCn66qsoM5amQ=" alt="Cable Management System" class="mt-8" />
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+      <p>&copy; 2024 Cable Management. All rights reserved.</p>
+    </div>
+  </body>
+</html>

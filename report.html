@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0A3D91, #1158B4); /* Classic Blue Gradient */
+            color: #f3f3f3;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0A3D91;
+            font-family: 'Merriweather', serif;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #0A3D91;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-links a.active {
+            color: #6A1B9A;
+            border-bottom: 3px solid #6A1B9A;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: rgba(106, 13, 173, 0.1);
+            color: #6A1B9A;
+        }
+
+        /* Content Section */
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            padding: 40px;
+            width: 500px;
+            margin: 50px auto;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 36px;
+            color: #0A3D91;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0A3D91;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        textarea, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            border-color: #6A1B9A;
+            background-color: #f1f1f1;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #6A1B9A;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 14px 25px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9c27b0;
+            transform: translateY(-3px);
+        }
+
+        input[type="submit"]:active {
+            background-color: #7b1fa2;
+            transform: translateY(0);
+        }
+
+        /* Feedback Messages */
+        .feedback {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 20px;
+            display: none;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        .success {
+            background-color: #388e3c;
+            color: white;
+        }
+
+        .error {
+            background-color: #d32f2f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">Cable Management</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="payment.html">Payment</a>
+            <a href="report.html" class="active">Report</a>
+            <a href="support.html">Support</a>
+            <a href="av.html">Admin</a>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container">
+        <h1>Report a Complaint</h1>
+        <form id="reportForm">
+            <label for="customer-address">Customer Address:</label>
+            <textarea id="customer-address" name="customer_address" maxlength="100" rows="3" placeholder="Enter Customer Address" required></textarea>
+
+            <label for="customer-number">Customer Number:</label>
+            <input type="text" id="customer-number" name="customer_number" maxlength="15" placeholder="Enter Customer Number" required>
+
+            <label for="complaint">Complaint Details:</label>
+            <textarea id="complaint" name="complaint" maxlength="250" rows="5" placeholder="Describe the Complaint" required></textarea>
+
+            <input type="submit" value="Report Complaint">
+        </form>
+
+        <!-- Feedback Messages -->
+        <div class="feedback success" id="successMessage">Your report has been submitted successfully!</div>
+        <div class="feedback error" id="errorMessage">There was an error submitting your report. Please try again later.</div>
+    </div>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simulate success/error based on form submission
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Simulate a successful form submission
+            const isSuccessful = Math.random() > 0.2;  // Simulate success (80%) or error (20%)
+
+            if (isSuccessful) {
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+            }
+
+            // Clear the form fields
+            document.getElementById('reportForm').reset();
+        });
+    </script>
+</body>
+</html>

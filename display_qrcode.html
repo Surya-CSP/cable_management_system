@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #4f5bd5;
+      color: white;
+    }
+    img {
+      margin-top: 20px;
+      border: 5px solid white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>QR Code Generated</h1>
+  <p id="qrText"></p>
+  <img id="qrImage" alt="QR Code">
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const qrData = params.get("qrData");
+    const qrImage = params.get("qrImage");
+
+    document.getElementById("qrText").textContent = qrData;
+    document.getElementById("qrImage").src = qrImage;
+  </script>
+</body>
+</html>

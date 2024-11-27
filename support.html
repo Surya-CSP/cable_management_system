@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Component</title>
+    
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif; /* Classic serif font for elegance */
+            background-color: #f4f4f9; /* Light grey background for softness */
+            color: #333; /* Dark text for readability */
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Georgia', serif;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #f4f4f9;
+            color: #7a5c4d; /* Subtle brown for a sophisticated feel */
+        }
+
+        .navbar .nav-links a.active {
+            color: #7a5c4d; /* Active link with a classic brown tone */
+            border-bottom: 2px solid #7a5c4d;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px); /* Adjust height for navbar */
+            padding: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Heading */
+        .form-container h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            font-weight: 600;
+        }
+
+        /* Owner Details */
+        .owner-details {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .detail {
+            margin-bottom: 12px;
+        }
+
+        .detail label {
+            font-weight: bold;
+            color: #7a5c4d; /* Subtle brown for labels */
+        }
+
+        .detail span {
+            margin-left: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Button Styles */
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            background-color: #7a5c4d;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #8f704f;
+            transform: translateY(-2px); /* Slight elevation on hover */
+        }
+
+        .form-container button:active {
+            background-color: #6a4d35;
+            transform: translateY(0); /* Active state with minimal transform */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo">Cable Management</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="payment.html">Payment</a>
+            <a href="report.html">Report</a>
+            <a href="support.html" class="active">Support</a>
+            <a href="av.html">Admin</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="form-container">
+            <h1>Owner Details</h1>
+            <div class="owner-details">
+                <div class="detail">
+                    <label for="owner-name">Name:</label>
+                    <span id="owner-name">Sai Pavan</span>
+                </div>
+                <div class="detail">
+                    <label for="owner-contact">Contact:</label>
+                    <span id="owner-contact">+919912156324</span>
+                </div>
+                <div class="detail">
+                    <label for="owner-address">Address:</label>
+                    <span id="owner-address">GEC College Road, Gudlavalleru</span>
+                </div>
+                <div class="detail">
+                    <label for="owner-email">Email:</label>
+                    <span id="owner-email">owner@gmail.com</span>
+                </div>
+            </div>
+
+            <button onclick="showThanks()">Need Support?</button>
+        </div>
+    </div>
+
+    <script>
+        function showThanks() {
+            alert("Thank you for reaching out! We will get back to you shortly.");
+        }
+    </script>
+</body>
+</html>
